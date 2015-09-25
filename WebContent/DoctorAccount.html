@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html data-ng-app="app2">
+ <head>
+     <title>Show doctors</title>
+    <link href="include/styles.css" rel="stylesheet">
+    <!-- Use Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src="include/app2.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+   
+  <body data-ng-controller="DoctorAccountController">
+    <div class="container">
+    
+       
+    <div class="header">
+      <h1 class="custom">Doctor Management Interface</h1>
+    </div>
+ 
+    <div class="leftPanel">
+      <div class="LeftPanelHeader">{{navTitle}}</div>
+      <table class="side">
+        <tr data-ng-repeat="a in patients"  data-ng-click="getPatient(a.pid)" >
+          <td class="side">{{a.name}}</td>
+        </tr>
+      </table>
+    </div>
+   
+    
+    <div class="MainBody">
+        <form>
+          <table>
+          <tr>
+            <td><input type="text" data-ng-model="searchName" size="30"></td>
+            <td><button type="button" data-ng-click="searchPatient(searchName)" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-search"></span> Search </button></td>
+            <td><button data-ng-click="addNew()" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-plus"></span> Add New </button></td>
+            <td><button data-ng-click="resetSearch()"  class="btn btn-info btn-sm">
+            <span class="glyphicon glyphicon-refresh"></span> Reset Search </button></td>
+          </tr>
+        </table>
+        </form>
+         
+      <form id="main1">
+        <table>
+          <tr>
+            <td class="display_bold"><label for="patient.name">ID:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input id="id" type="text" data-ng-model="patient.pid" size="4"></td>
+          </tr>
+          <tr>
+            <td class="display_bold"><label for="name">Name:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.name" size="30"></td>
+          </tr>
+         
+          <tr>
+            <td class="display_bold"><label for="name">disease:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.disease" size="20"></td>
+          </tr>
+          <tr>
+            <td class="display_bold"><label for="name">Email:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.email" size="30"></td>
+          </tr>
+          <tr>
+            <td class="display_bold"><label for="name">Image:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.image" size="80"></td>
+          </tr>
+          
+           
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>
+              <table>              
+                <tr>
+                  <td><button data-ng-click="savePatient(patient.id)" class="btn btn-success btn-sm" title="Save patient's details..." data-ng-disabled="isSaveDisabled">
+                  <span class="glyphicon glyphicon-plus"></span> Save </button></td>
+                <td><button data-ng-click="deletePatient(patient.id)" class="btn btn-danger btn-sm" data-ng-disabled="isDeleteDisabled">
+                <span class="glyphicon glyphicon-trash"></span> Delete </button></td>    
+                </tr>
+              </table>
+            </td>
+          </tr>
+           
+        </table>
+      </form>
+    </div>
+ 
+    <div class="footer">AngularJS Demo   - Copyright © avaldes.com</div>
+  </div>
+  </body>
+</html>
