@@ -1,4 +1,4 @@
-<html data-ng-app="app1">
+<html data-ng-app="app1" >
   <head>
     <title>Show doctors</title>
     <link href="include/styles.css" rel="stylesheet">
@@ -11,23 +11,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
    
-  <body data-ng-controller="HttpCtrl as app">
-    <div class="container">
+  <body data-ng-controller="HttpCtrl as app" data-ng-init="doctor=doctors[0]" >
+    <div class="container" >
     
-    <div class="header">
-      <h1 class="custom">Doctor Management Interface</h1>
+    <div class="header" >
+      <h1 >Doctor Management Interface</h1>
     </div>
- 
-    <div class="leftPanel">
+     
+     
+    <div class="leftPanel"  >
       <div class="LeftPanelHeader">{{navTitle}}</div>
-      <table class="side">
-        <tr data-ng-repeat="a in doctors" data-ng-click="getDoctor(a.id)" >
+      <table class="side" >
+        <tr data-ng-repeat="a in doctors" 
+            data-ng-click="getDoctor(a.id)" >
           <td class="side">{{a.name}}</td>
         </tr>
       </table>
     </div>
+    
  
-    <div class="RightPanel">
+    <div class="RightPanel" style=height:220px;width:220px;>
       <image src="{{doctor.image}}" width="220">
     </div>
      

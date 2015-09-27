@@ -11,6 +11,112 @@ public class Patient {
     private String name;
     private String email;	  
     private String disease;
+    private double height;
+    private double weight;
+    private String address;	  
+    private long phone;
+    private String blood_type;
+    private String ethnicity; 
+    private String languagetype;
+    private String Birthday;
+    private String primary_doc;
+	private EmergencyContact e;
+	
+	private String gender;
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+    public String getPrimary_doc() {
+		return primary_doc;
+	}
+
+	public void setPrimary_doc(String primary_doc) {
+		this.primary_doc = primary_doc;
+	}
+
+	public String getBlood_type() {
+		return blood_type;
+	}
+
+	public void setBlood_type(String blood_type) {
+		this.blood_type = blood_type;
+	}
+
+	public String getEthnicity() {
+		return ethnicity;
+	}
+
+	public void setEthnicity(String ethnicity) {
+		this.ethnicity = ethnicity;
+	}
+
+	public String getLanguagetype() {
+		return languagetype;
+	}
+
+	public void setLanguagetype(String languagetype) {
+		this.languagetype = languagetype;
+	}
+
+	public String getBirthday() {
+		return Birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.Birthday = birthday;
+	}
+
+	
+    
+    public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(long phone) {
+		this.phone = phone;
+	}
+
+	public EmergencyContact getE() {
+		return e;
+	}
+
+	public void setE(EmergencyContact e) {
+		this.e = e;
+	}
+
+    
+    
+    
 	    public String getPid() {
 		return pid;
 	}
@@ -43,16 +149,24 @@ public class Patient {
 		this.disease = disease;
 	}
 
-	    public Patient(){
-	    	
-	    }
 	   
-	    public Patient(String pid, String name,
-	                 String email, String disease) {
+	   
+	    public Patient(String pid, String name , String email , String disease , double height , double weight , String address , long phone , String primary_doc , String blood_type , String gender, String languagetype , String birthday , EmergencyContact e,String ethnicity)
+      {
 	        this.pid = pid;
 	        this.name = name;
 	        this.email = email;
 	        this.disease = disease;
+	        this.height=height;
+	        this.address=address;
+	        this.Birthday=birthday;
+	        this.blood_type=blood_type;
+	        this.e=e;
+	        this.ethnicity=ethnicity;
+	        this.phone=phone;
+	        this.primary_doc=primary_doc;
+	        this.languagetype=languagetype;
+	        this.gender=gender;
 	    }
 
 	    

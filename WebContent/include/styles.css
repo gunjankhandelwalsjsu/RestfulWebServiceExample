@@ -59,14 +59,8 @@ td.side:hover {
     padding-bottom:3px; 
 }
 
-.RightPanel {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:460px;
-    width:240px;
-    float:right;
-    padding:5px; 
-}
+
+
 
 .MainBody {
     width:600px;

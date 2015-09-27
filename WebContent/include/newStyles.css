@@ -2,7 +2,6 @@
 ============================================================================= */
 html         { overflow-y:auto; }
 
-
 .page        { 
 	bottom:0; 
 	padding-top:0px;
@@ -10,9 +9,8 @@ html         { overflow-y:auto; }
 	text-align:center;
 	top:0;  
 	width:100%; 
-
-	
 }
+
 
 
 .page h1 	{ font-size:60px; }
@@ -21,7 +19,7 @@ html         { overflow-y:auto; }
 
 /* PAGES
 ============================================================================= */
-.Doctors		{ background:#00D0BC; color:#00907c; }
+.Doctors		{ background:#00D0BC; color:#00907c;}
 .DoctorAccount 	{ background:#E59400; color:#a55400; }
 .thirdPage 	    { background:#ffa6bb; color:#9e0000; }
 

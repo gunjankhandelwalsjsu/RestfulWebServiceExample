@@ -10,6 +10,8 @@
     var response = $http.get('/RestfulWebServiceExample/rest/doctors/');
     response.success(function(data) {
       $scope.doctors = data;
+      $scope.doctor=doctors[0];
+      
       console.log("[main] # of items: " + data.length)
       angular.forEach(data, function(element) {
         console.log("[main] doctor: " + element.name);
@@ -21,6 +23,7 @@
      
 		
 		$scope.getDoctor = function(id) {
+    	
 			var response = $http.get('/RestfulWebServiceExample/rest/doctors/'+ id );
 			
 			response.success(function(data) {

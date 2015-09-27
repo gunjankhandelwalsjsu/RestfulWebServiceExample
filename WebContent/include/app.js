@@ -40,20 +40,25 @@ app.controller("DoctorAccountController", function($scope,$http)
   		};
   		
   		$scope.searchPatient = function(name) {
-  			var app = this;
-  			$scope.navTitle = 'Search Criteria';
-  			
-  			var response = $http.get('/RestfulWebServiceExample/rest/doctors/search/patient' + id+name);
-  			response.success(function(data) {
-  				$scope.patient = data;
-  				$scope.$apply();
+			var app = this;
+			var response = $http.get('/RestfulWebServiceExample/rest/doctors/search/patient/' + 123+"/"+name);
+			response.success(function(data) {
+			    $scope.navTitle = 'Search Criteria';
+				$scope.patients = data;
 
-  				console.log("[searchPatient] # of items: " + data.length)
-  				angular.forEach(data, function(element) {
-  					console.log("[searchPatient] patient: " + element.name);
-  				});
+				$scope.$apply(function () {
+					$scope.$apply(function () {
+						$scope.patient = data;
+			        })
 
-  		    });
+						
+		        });
+				console.log("[searchDoctor] # of items: " + data.length)
+				angular.forEach(data, function(element) {
+					console.log("[searchDctor] dctor: " + element.name);
+				});
+
+		    });
   			
   			response.error(function(data, status, headers, config) {
   				alert("AJAX failed to get data, status=" + status);
@@ -153,6 +158,7 @@ app.controller("HttpCtrl", function($scope, $http) {
     var response = $http.get('/RestfulWebServiceExample/rest/doctors/');
     response.success(function(data) {
       $scope.doctors = data;
+      $scope.doctor=doctors[0];
       console.log("[main] # of items: " + data.length)
       angular.forEach(data, function(element) {
         console.log("[main] doctor: " + element.name);

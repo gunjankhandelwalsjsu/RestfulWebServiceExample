@@ -12,19 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
    
-  <body data-ng-controller="DoctorAccountController">
+  <body data-ng-controller="DoctorAccountController as app">
     <div class="container">
     
        
-    <div class="header">
+    <div >
       <h1 class="custom">Doctor Management Interface</h1>
     </div>
  
     <div class="leftPanel">
       <div class="LeftPanelHeader">{{navTitle}}</div>
       <table class="side">
-        <tr data-ng-repeat="a in patients"  data-ng-click="getPatient(a.pid)" >
-          <td class="side">{{a.name}}</td>
+        <tr data-ng-repeat="patient in patients"  data-ng-click="getPatient(patient.pid)" >
+          <td class="side">{{patient.name}}</td>
         </tr>
       </table>
     </div>
@@ -45,7 +45,7 @@
         </table>
         </form>
          
-      <form id="main1">
+      <form id="main">
         <table>
           <tr>
             <td class="display_bold"><label for="patient.name">ID:</label></td>
@@ -72,6 +72,80 @@
           <tr>
             <td class="display"><input type="text" data-ng-model="patient.email" size="30"></td>
           </tr>
+          
+           <tr>
+            <td class="display_bold"><label for="name">height:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.height" size="20"></td>
+          </tr>
+          
+           <tr>
+            <td class="display_bold"><label for="name">weight:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.weight" size="20"></td>
+          </tr>
+          
+           <tr>
+            <td class="display_bold"><label for="name">address:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.address" size="20"></td>
+          </tr>
+           <tr>
+            <td class="display_bold"><label for="name">phone:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.phone" size="20"></td>
+          </tr>
+           <tr>
+            <td class="display_bold"><label for="name">emergency contact:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.e.phone" size="20"></td>
+          </tr>
+           <tr>
+            <td class="display_bold"><label for="name">primary doctor:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.primary_doc" size="20"></td>
+          </tr>
+          <tr>
+           <td class="display_bold"><label for="name">Blood Type:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.blood_type" size="20"></td>
+          </tr>
+          <tr>
+           <td class="display_bold"><label for="gender">Blood Type:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.gender" size="20"></td>
+          </tr>
+          <tr>
+           <td class="display_bold"><label for="name">ethinicity:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.ethnicity" size="20"></td>
+          </tr>
+           <tr>
+           <td class="display_bold"><label for="name">Birthday:</label></td>
+          </tr>
+          <tr>
+            <td class="display"><input type="text" data-ng-model="patient.birthday" size="20"></td>
+          </tr>
+           
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           <tr>
             <td class="display_bold"><label for="name">Image:</label></td>
           </tr>
@@ -87,9 +161,9 @@
             <td>
               <table>              
                 <tr>
-                  <td><button data-ng-click="savePatient(patient.id)" class="btn btn-success btn-sm" title="Save patient's details..." data-ng-disabled="isSaveDisabled">
+                  <td><button data-ng-click="savePatient(patient.pid)" class="btn btn-success btn-sm" title="Save patient's details..." data-ng-disabled="isSaveDisabled">
                   <span class="glyphicon glyphicon-plus"></span> Save </button></td>
-                <td><button data-ng-click="deletePatient(patient.id)" class="btn btn-danger btn-sm" data-ng-disabled="isDeleteDisabled">
+                <td><button data-ng-click="deletePatient(patient.pid)" class="btn btn-danger btn-sm" data-ng-disabled="isDeleteDisabled">
                 <span class="glyphicon glyphicon-trash"></span> Delete </button></td>    
                 </tr>
               </table>

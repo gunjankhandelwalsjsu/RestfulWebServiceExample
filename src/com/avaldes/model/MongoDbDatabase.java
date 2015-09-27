@@ -79,6 +79,7 @@ public class MongoDbDatabase {
 	                    doc.setActive(active);
 	                    doc.setImage(image);
 	                    dc.add(doc);
+	                  
 	                }               
 	            	
 	                
@@ -195,11 +196,32 @@ public class MongoDbDatabase {
                       	   System.out.println("got iiii"+patients.size());
                            for (int j = 0; j < patients.size(); j++) {
                           	   BasicDBObject patientObj = (BasicDBObject) patients.get(j);
-                          	   String pid  = patientObj.getString("pid");
+                          	   String pid  = patientObj.getString("id");
                           	   String email = patientObj.getString("email");
                                String name = patientObj.getString("name");
                                String disease = patientObj.getString("disease");
-                	           Patient patient = new Patient(pid, name, email, disease);
+                               double height  =  (Double) patientObj.get("height");
+                          	   double weight =  (Double) patientObj.get("weight");
+                               String address = patientObj.getString("address");
+                               long phone = (Long) patientObj.get("phone");
+                               String primary_doc  = patientObj.getString("primary_doc");
+                          	   String blood_type = patientObj.getString("blood_type");
+                               String gender = patientObj.getString("gender");
+                               String ethnicity = patientObj.getString("ethinicity");
+                               String languagetype = patientObj.getString("languagetype");
+                               String Birthday = patientObj.getString("Birthday");
+                               System.out.println("print birthday"+Birthday);
+
+                               EmergencyContact e=new EmergencyContact();
+                          	   BasicDBObject e1 = (BasicDBObject) patientObj.get("emergency_contact");
+                               e.setPhone((Long)e1.get("phone"));
+                               e.setRelationship((String)e1.get("relationship"));
+
+
+
+                      //         EmergencyContact e=(EmergencyContact) patientObj.get("emergency_contact");
+
+                	           Patient patient = new Patient(pid, name, email, disease,height,weight,address,phone,primary_doc,blood_type,gender,languagetype,Birthday,e,ethnicity);
                                pc.add(patient);
                	                       }
                	                }
@@ -219,29 +241,41 @@ public class MongoDbDatabase {
   	   DBCollection coll = db.getCollection("PatientListwrtDoctor");
 		 DBCursor cursor = coll.find();
     	   ArrayList<Patient> pc = new ArrayList<Patient>();
-
-         while(cursor.hasNext()) {
-                Doctor doc = new Doctor();
-                DBObject tobj = cursor.next();
-                BasicDBList docList = (BasicDBList) tobj.get("PatientList");
-                for (int i = 0; i < docList.size(); i++) {
-                	   BasicDBObject docObj = (BasicDBObject) docList.get(i);
-                       int id1 = docObj.getInt("id");
-                       if(id==id1){
-  	
-                           BasicDBList PatientList = (BasicDBList) tobj.get("patients");
-
-                    	   
-                           for (int j = 0; j < PatientList.size(); j++) {
+    	   while(cursor.hasNext()) {
+               DBObject tobj = cursor.next();
+               BasicDBList PatientList = (BasicDBList) tobj.get("PatientList");
+               for (int i = 0; i < PatientList.size(); i++) {
+               	   BasicDBObject docObj = (BasicDBObject) PatientList.get(i);
+                    int id1 = docObj.getInt("id");
+                    System.out.println("got id"+id1);
+                    if(id==id1){
+                        BasicDBList patients = (BasicDBList) docObj.get("patients");
+                   	   System.out.println("got iiii"+patients.size());
+                        for (int j = 0; j < patients.size(); j++) {
+                       	   BasicDBObject patientObj = (BasicDBObject) patients.get(j);
+      
                         	   
-                        	   
-                        	   BasicDBObject patientObj = (BasicDBObject) PatientList.get(j);
                                String nameOfPatient = patientObj.getString("name");
-                              if(name==nameOfPatient){
-                        	   String pid  = patientObj.getString("pid");
-                        	   String email = patientObj.getString("email");
+                              if(nameOfPatient.contains(name)){
+                                  System.out.println("name of patient"+nameOfPatient);
+
+                        	 String pid  = patientObj.getString("id");
+                        	 String email = patientObj.getString("email");
                              String disease = patientObj.getString("disease");
-              	           Patient patient = new Patient(pid, name, email, disease);
+                             double height  = (Double) patientObj.get("height");
+                             double weight = (Double) patientObj.get("weight");
+                             String address = patientObj.getString("address");
+                             long phone = (Long) patientObj.get("phone");
+                             String primary_doc  = patientObj.getString("primary_doc");
+                        	 String blood_type = patientObj.getString("blood_type");
+                             String gender = patientObj.getString("gender");
+                             String ethnicity = patientObj.getString("ethinicity");
+                             String languagetype = patientObj.getString("languagetype");
+                             String Birthday = patientObj.getString("Birthday");
+                             System.out.println("print birthday"+Birthday);
+                             EmergencyContact e=(EmergencyContact) patientObj.get("emergency_contact");
+
+              	           Patient patient = new Patient(pid, name, email, disease,height,weight,address,phone,primary_doc,blood_type,gender,languagetype,Birthday,e,ethnicity);
                              pc.add(patient);
                               }
              	                       }
@@ -260,14 +294,25 @@ public class MongoDbDatabase {
 	public void updatePatient(Patient patient, MongoClient mongoClient) {
 		DB db = mongoClient.getDB( "user" );
         DBCollection coll = db.getCollection("Patients");
-        DBObject queryForElem = new BasicDBObject("patients", new BasicDBObject("$elemMatch", new BasicDBObject("pid", patient.getPid())));
+        DBObject queryForElem = new BasicDBObject("patients", new BasicDBObject("$elemMatch", new BasicDBObject("id", patient.getPid())));
         DBObject find = new BasicDBObject("i", 1);
 
         BasicDBObject updateFields = new BasicDBObject();
         updateFields.put("name", patient.getName());
         updateFields.put("email", patient.getEmail());
         updateFields.put("id", patient.getPid());
-        updateFields.put("disease", patient.getDisease());
+        updateFields.put("height", patient.getHeight());
+        updateFields.put("weight", patient.getWeight());
+        updateFields.put("address", patient.getAddress());
+        updateFields.put("phone", patient.getPhone());
+        updateFields.put("primary_doc", patient.getPrimary_doc());
+        updateFields.put("blood_type", patient.getBlood_type());
+        updateFields.put("gender", patient.getGender());
+        updateFields.put("ethinicity", patient.getEthnicity());
+        updateFields.put("languagetype", patient.getLanguagetype());
+        updateFields.put("primary_doc", patient.getPrimary_doc());
+        updateFields.put("Birthday", patient.getBirthday());
+        updateFields.put("emergency_contact", patient.getE());
      
         DBObject listItem = new BasicDBObject("patients", updateFields);
 
@@ -282,7 +327,7 @@ public class MongoDbDatabase {
 		System.out.println("inside");
  	   ArrayList<Patient> pc = getPatientData(id, mongoClient_doctor);
  	  // System.out.println(pc);
- 	//   System.out.println(pid);
+ 	  System.out.println(pid);
  	   for(Patient p:pc){
 			   System.out.println("**************"+p);
 

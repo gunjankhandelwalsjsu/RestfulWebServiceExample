@@ -126,15 +126,18 @@ public class RestfulWSExample {
         public ArrayList<Patient> searchPatientByName(@PathParam("id") int id,@PathParam("query") String query) {
             System.out.println("Searching patient by Name: " + query+ id);
             MongoDbDatabase dbase=new MongoDbDatabase();
-            ArrayList<Patient> patientList= dbase.searchPatient(id,mongoClient_doctor,query);
+      //      ArrayList<Patient> patientList= dbase.searchPatient(id,mongoClient_doctor,query);
+            ArrayList<Patient> patientList = dbase.getPatientData(id,mongoClient_doctor);
 
             ArrayList<Patient> patList = new ArrayList<Patient>();
             for (Patient c: patientList) {
                 if (c.getName().toUpperCase().contains(query.toUpperCase())){
                 	patList.add(c);
-                System.out.println(c);
+                System.out.println("cccccccc"+c);
                 }
             }
+            System.out.println("********"+patList);
+
             return patList;
         }
         
@@ -181,9 +184,9 @@ public class RestfulWSExample {
         public Patient getPatientById(@PathParam("pid") String pid, @PathParam("id") int id) {
             System.out.println("Getting doctor******** by ID: " + id);
             MongoDbDatabase dbase=new MongoDbDatabase();
-            System.out.println("pid"+pid);
+            System.out.println("pid......"+pid);
             Patient patient = dbase.getDoctorsPatientData(id,pid,mongoClient_doctor);
-            System.out.println("Getting doctor******** by patient: " + patient);
+            System.out.println("Getting doctor******** by patient: " + patient.getBirthday());
 
          //   System.out.println(patient.getName());
             if (patient != null) {
