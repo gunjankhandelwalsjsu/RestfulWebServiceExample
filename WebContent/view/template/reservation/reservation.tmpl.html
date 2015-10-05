@@ -1,0 +1,45 @@
+<div class="reservationInfo">
+	<p class="resNote">Reservation Record</p>
+
+	<form>
+		<input class="searchById" type="search"
+			placeholder="enter search text" autocomplete="on"
+			ng-model="reservationVm.userText">
+		<!-- href has precedance over 'ng-click' so remove href from here... -->
+		<a class="searchReservation" ng-click="reservationVm.searchBy();">Search</a>
+	</form>
+
+	<div class="reservationContent">
+		<table class="reservationTable">
+		
+			<thead>
+				<tr>
+					<th>Res ID</th>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Count</th>
+					<th>Table</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr
+					ng-repeat="res in reservationVm.reservations | filter:reservationVm.searchingText">
+					<td>{{res.reservationId}}</td>
+					<td>{{res.firstName}}, {{res.lastName}}</td>
+					<td>{{res.date}}</td>
+					<td>{{res.partySize}}</td>
+					<td>{{res.table}}</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+	<!-- 
+  <form>
+    <a class="reservationDetails" href="">Details</a>
+  </form>
+ -->
+
+</div>

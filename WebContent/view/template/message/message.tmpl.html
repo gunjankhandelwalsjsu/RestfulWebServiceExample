@@ -1,0 +1,54 @@
+<div id="reservationInfo">
+	<p class="resNote">Send Reservation Information.</p>
+
+
+	<div class="reservationContent">
+		<form class="messageForm"   name="messageForm" novalidate >
+
+			<table class="messageTable">
+				<tr>
+					<td><label for="userEmail">e-mail </label></td>
+				</tr>
+				<tr>
+					<td>
+						<input type="email" id="userEmail" name="userEmail" minlength="6"  
+						placeholder="example@domain.com" ng-model="messageVm.userMessage.email"
+						required >
+						
+						<div ng-messages="messageForm.userEmail.$error" ng-if="messageForm.userEmail.$dirty" class="formErrorMessage">
+							<p ng-message="required">Email is required.</p>
+							<p ng-message="email">Email is invalid.</p>
+							<p ng-message="minlength">Email must be atleast 6 chars long.</p>
+					</div>
+					</td>
+				</tr>
+				<tr>						
+					<td><label for="reservationMessage">message </label></td>
+				</tr>
+				<tr>
+					<td>
+						<textarea rows="4" placeholder="message text" name="reservationMessage" 
+							id="reservationMessage" ng-model="messageVm.userMessage.message" required ></textarea>
+						
+						<div ng-messages="messageForm.reservationMessage.$error" ng-if="messageForm.userEmail.$dirty" class="formErrorMessage">
+							<p ng-message="required">Please enter some text message.</p>
+						</div>	
+							
+					</td>
+				</tr>
+
+				<tr>
+					<td><a class="reservationDetails" id="reservationTextMsg"
+						name="sendReservationMsg" ng-click="messageVm.sendEmail(messageForm);" >Send</a>
+					</td>
+				</tr>
+
+			</table>
+
+
+
+		</form>
+	</div>
+
+
+</div>

@@ -1,0 +1,32 @@
+<div id="reservationInfo" class="content">
+    
+    <p class="resNote">Available tables at Dessi Katta.</p>
+ 
+    <table class="seatLayout">
+    	<tr>
+    		<td class="padding-bottom"></td>
+    		<td class="padding-bottom">Seating for 4</td>
+    		<td class="padding-bottom">Seating for 8</td>
+    		<td class="padding-bottom">Seating for 12</td>
+    	</tr>
+        <tr>
+            <td class="padding-bottom">#</td>
+            <td class="padding-bottom" ng-repeat="col in seatingVm.cols track by $index" ng-bind="col"></td>
+        </tr>
+        <tr ng-repeat="row in seatingVm.rows">
+            <td class="padding-right" ng-bind="row"></td>
+            <td class="seat" ng-repeat="col in seatingVm.cols" ng-click="seatingVm.seatClicked(row + col)" ng-switch on="seatingVm.getStatus(row + col)">
+                <img ng-switch-when="selected" src="ImageResource/selected_table.png">
+                <img ng-switch-when="reserved" src="ImageResource/reserved_table.png">
+                <img ng-switch-default src="ImageResource/available_chair.png">
+            </td>
+        </tr>
+    </table>
+ 
+    <div class="legend">
+        <img src="ImageResource/available_chair.png">  Available
+        <img src="ImageResource/reserved_table.png" class="padding-left">  Reserved
+        <img src="ImageResource/selected_table.png" class="padding-left">  Selected
+    </div>
+ 
+</div>

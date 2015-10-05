@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+
+<head>
+
+<meta charset="utf-8">
+<title>Connected Patients Health Analytics Using Wearables</title>
+
+<!-- load my style -->
+<link rel="stylesheet" href="include/style.css">
+<!-- Use normalized CSS -->
+<link rel="stylesheet"
+	href="https://necolas.github.io/normalize.css/3.0.2/normalize.css">
+<link rel="stylesheet" href="include/jqtree.css">
+
+<!-- > IE9 doesn't support HTML5 new tags,use html5shiv pollyfill   -->
+<!--[If lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"> </script> 
+    <![endif]-->
+
+</head>
+
+<body>
+
+	<!-- page header -->
+	<header>
+		<!-- site heading -->
+		<p class="siteName">
+			<span id="siteMainName"><strong>Connected Patients Health Analytics Using Wearables</strong></span> <a
+				class="webLinksLogin" href="#/login">Login</a>
+		</p>
+		<!-- page navigation option -->
+		<!-- <nav>
+			<ul class="navigationList">
+				<li><a class="navOption" href="#/home">Home</a></li>
+				<li><a class="navOption" href="#/reservation">Reservation</a></li>
+				<li><a class="navOption" href="#/seating">Seating</a></li>
+				<li><a class="navOption" href="#/menu">Menu</a></li>
+				<li><a class="navOption" href="#/message">Message</a></li>
+			</ul>
+		</nav> --> 
+	</header>
+
+	<!-- page content -->
+	<article>
+
+		<!-- <section id="contentDetails" ng-include="mainVm.templateURL"> -->
+		<section id="contentDetails" data-ng-view>
+			<!-- different section/page details go here -->
+		</section>
+
+	</article>
+
+	<!-- page footer -->
+	<footer>
+		<div class="footerInfo">
+			<p>&copy; 2015 Project By Hardik shah, Gunjan Khandelwal, Sai Aishwarya, and Wilbert.
+				 Contact us at +1 000 000 0000.</p>
+		</div>
+	</footer>
+
+
+
+
+	<!-- Load scripts at end to allow rendering of HTML elements first -->
+	<!-- core Angular JS -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
+	<!-- load routing module to handle refresh(cached templates are lost) -->
+	<script src="https://code.angularjs.org/1.4.1/angular-route.js"></script>
+	<!-- Load angular module for form validation -->
+	<script src="https://code.angularjs.org/1.4.1/angular-messages.js"></script>
+	<!-- load jquery -->
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="script/jqTree/tree.jquery.js"></script>
+	
+	
+
+	<!-- load application JS -->
+	<script src="script/app/script.js"></script>
+	
+
+
+	<!-- load scripts for services -->
+	<script src="script/service/gallery/imageLoad.factory.js"></script>
+	<script src="script/service/menu/loadMenu.service.js"></script>
+	<script src="script/service/message/message.service.js"></script>
+	<script src="script/service/login/doctorLogin.service.js"></script>
+	<script src="script/service/seating/currentSeating.service.js"></script>
+	<script src="script/service/login/patientLogin.service.js"></script>
+	<script src="script/service/reservation/reservation.service.js"></script>
+
+
+	<!-- load template related scripts -->
+	<script src="script/controller/gallery/homeGallery.controller.js"></script>
+	<script src="script/controller/reservation/reservation.controller.js"></script>
+	<script src="script/controller/seating/seating.controller.js"></script>
+	<script src="script/controller//message/message.controller.js"></script>
+	<script src="script/controller/menu/menu.controller.js"></script>
+	<script src="script/controller/login/login.controller.js"></script>
+	<script src="script/controller/login/patientLogin.controller.js"></script>
+	<script src="script/controller/login/doctorLogin.controller.js"></script>
+
+
+
+</body>
+
+</html>

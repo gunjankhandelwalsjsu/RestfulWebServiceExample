@@ -1,0 +1,97 @@
+<div class="patientLoginInfo">
+
+  <p class="resNote">Welcome to Connected Patients Health Analytics Usidata-ng Wearbales !!</p>
+
+  <div class="patientReservation">
+
+    <!-- Form name is reuired for error message. Stop HTML5 validation-->
+    <!-- pass valid form to controller, 'form.$valid' is true when all entered fields are valid-->
+    <!-- Remove: data-ng-submit="patientLoginVm.makeReservation(patientLoginForm)", usidata-ng data-ng-click on anchor tag & pass form name there.  -->
+    <form name="patientLoginForm" novalidate >
+
+      <ul>
+        <li>
+          <label for="patientFirstName">First Name:</label>
+          <input type="textbox" id="patientFirstName" name="patientFirstName" data-ng-minledata-ngth="2" data-ng-maxledata-ngth="20" placeholder="enter your first name" data-ng-model="patientLoginVm.newPerson.firstName" required></tr>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="patientLoginForm.patientFirstName.$error" data-ng-if="patientLoginForm.patientFirstName.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">First Name is required.</p>
+            <p style="color:red" data-ng-message-exp="['minledata-ngth', 'maxledata-ngth']">Required field must be 2 to 20 chars lodata-ng.</p>
+          </div>
+        </li>
+        <li>
+          <label for="patientLastName">Last Name: </label>
+          <input type="textbox" id="patientLastName" name="patientLastName" data-ng-minledata-ngth="2" data-ng-maxledata-ngth="20" placeholder="enter your last name" data-ng-model="patientLoginVm.newPerson.lastName" required>
+          <!-- if only dirty check and show message. Provide a proper msg if error on property patientLoginForm.patientLastName -->
+          <div data-ng-messages="patientLoginForm.patientLastName.$error" data-ng-if="patientLoginForm.patientLastName.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Last Name is required.</p>
+            <p style="color:red" data-ng-message-exp="['minledata-ngth', 'maxledata-ngth']">Required field must be 2 to 20 chars lodata-ng.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="patientEmail">Email: </label>
+          <input type="email" id="patientEmail" name="patientEmail" minledata-ngth="6"  data-ng-maxledata-ngth="30" placeholder="example@domain.com" data-ng-model="patientLoginVm.newPerson.email" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="patientLoginForm.patientEmail.$error" data-ng-if="patientLoginForm.patientEmail.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Email is required and must be atleast 6 chars lodata-ng..</p>
+            <p style="color:red" data-ng-message-exp="['minledata-ngth', 'maxledata-ngth']">Required field must be 6 chars lodata-ng.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="patientPhone">Phone Number: </label>
+          <input type="phone" id="patientPhone" name="patientPhone" placeholder="(800)999-8000" data-ng-pattern="/^[0-9]{10}$/" data-ng-model="patientLoginVm.newPerson.phone" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="patientLoginForm.patientPhone.$error" data-ng-if="patientLoginForm.patientPhone.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Phone is required. and must be 10 digit lodata-ng</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="patientAddress">Street Address: </label>
+          <input type="textbox" id="patientAddress" name="patientAddress" placeholder="201 S 4th Street San Jose" data-ng-model="patientLoginVm.newPerson.address" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="patientLoginForm.patientAddress.$error" data-ng-if="patientLoginForm.patientAddress.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Address is required.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="patientGender">Gender: </label>
+          <input type="textbox" id="patientGender" name="patientGender" placeholder="" data-ng-model="patientLoginVm.newPerson.gender" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="patientLoginForm.patientGender.$error" data-ng-if="patientLoginForm.patientGender.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Gender is required.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="patientSSN">Social Security Number: </label>
+          <input type="textbox" id="patientSSN" name="patientSSN" placeholder="" data-ng-model="patientLoginVm.newPerson.SSN" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="patientLoginForm.patientSSN.$error" data-ng-if="patientLoginForm.patientSSN.$dirty" class="formErrorMessage">
+          	<p style="color:red" data-ng-message="required">SSN is required.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="patientDisease">Disease: </label>
+          <input type="textbox" id="patientDisease" name="patientDisease" placeholder="" data-ng-model="patientLoginVm.newPerson.speciality" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="patientLoginForm.patientDisease.$error" data-ng-if="patientLoginForm.patientDisease.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Disease is required.</p>
+          </div>
+        </li>
+      </ul>
+	<br/>
+      <!-- if 'data-ng-click="patientLoginVm.makeReservation()' is used,form is not submitted on pressidata-ng Enter. 
+           However, data-ng-submit allows you to submit even on pressidata-ng Enter key.  -->
+      <!-- Pass the form name for further validation -->
+     <center> <a class="reservationDetails" data-ng-click="patientLoginVm.makeReservation(patientLoginForm);" > Submit </a></center>
+
+    </form>
+
+  </div>
+  
+  </div>

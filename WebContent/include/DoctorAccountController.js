@@ -1,4 +1,4 @@
- angular.module("app", []).controller("DoctorAccountController", function($scope, $http) {
+var app2 = angular.module("app", []).controller("DoctorAccountController", function($scope, $http) {
   var app2 = this;
   $scope.navTitle = 'All Patients';
   $scope.operation="";

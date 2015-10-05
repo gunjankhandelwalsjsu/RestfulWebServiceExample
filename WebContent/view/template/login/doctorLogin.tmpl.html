@@ -1,0 +1,97 @@
+<div class="doctorLoginInfo">
+
+  <p class="resNote">Welcome Doctor !!</p>
+
+  <div class="doctorReservation">
+
+    
+    <form name="doctorLoginForm" novalidate >
+
+      <ul>
+        <li>
+          <label for="doctorFirstName">First Name:</label>
+          <input type="textbox" id="doctorFirstName" name="doctorFirstName" data-ng-minledata-ngth="2" data-ng-maxledata-ngth="20" placeholder="enter your first name" data-ng-model="doctorLoginVm.newPerson.firstName" required></tr>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="doctorLoginForm.doctorFirstName.$error" data-ng-if="doctorLoginForm.doctorFirstName.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">First Name is required.</p>
+            <p style="color:red" data-ng-message-exp="['minledata-ngth', 'maxledata-ngth']">Required field must be 2 to 20 chars lodata-ng.</p>
+          </div>
+        </li>
+        <li>
+          <label for="doctorLastName">Last Name: </label>
+          <input type="textbox" id="doctorLastName" name="doctorLastName" data-ng-minledata-ngth="2" data-ng-maxledata-ngth="20" placeholder="enter your last name" data-ng-model="doctorLoginVm.newPerson.lastName" required>
+          <!-- if only dirty check and show message. Provide a proper msg if error on property doctorLoginForm.doctorLastName -->
+          <div data-ng-messages="doctorLoginForm.doctorLastName.$error" data-ng-if="doctorLoginForm.doctorLastName.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Last Name is required.</p>
+            <p style="color:red" data-ng-message-exp="['minledata-ngth', 'maxledata-ngth']">Required field must be 2 to 20 chars lodata-ng.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="doctorEmail">Email: </label>
+          <input type="email" id="doctorEmail" name="doctorEmail" minledata-ngth="6"  data-ng-maxledata-ngth="30" placeholder="example@domain.com" data-ng-model="doctorLoginVm.newPerson.email" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="doctorLoginForm.doctorEmail.$error" data-ng-if="doctorLoginForm.doctorEmail.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Email is required and must be atleast 6 chars lodata-ng..</p>
+            <p style="color:red" data-ng-message-exp="['minledata-ngth', 'maxledata-ngth']">Required field must be 6 chars lodata-ng.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="doctorPhone">Phone Number: </label>
+          <input type="phone" id="doctorPhone" name="doctorPhone" placeholder="(800)999-8000" data-ng-pattern="/^[0-9]{10}$/" data-ng-model="doctorLoginVm.newPerson.phone" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="doctorLoginForm.doctorPhone.$error" data-ng-if="doctorLoginForm.doctorPhone.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Phone is required. and must be 10 digit lodata-ng</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="doctorAddress">Street Address: </label>
+          <input type="textbox" id="doctorAddress" name="doctorAddress" placeholder="201 S 4th Street San Jose" data-ng-model="doctorLoginVm.newPerson.address" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="doctorLoginForm.doctorAddress.$error" data-ng-if="doctorLoginForm.doctorAddress.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Address is required.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="doctorGender">Gender: </label>
+          <input type="textbox" id="doctorGender" name="doctorGender" placeholder="" data-ng-model="doctorLoginVm.newPerson.gender" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="doctorLoginForm.doctorGender.$error" data-ng-if="doctorLoginForm.doctorGender.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Gender is required.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="doctorSSN">Social Security Number: </label>
+          <input type="textbox" id="doctorSSN" name="doctorSSN" placeholder="" data-ng-model="doctorLoginVm.newPerson.SSN" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="doctorLoginForm.doctorSSN.$error" data-ng-if="doctorLoginForm.doctorSSN.$dirty" class="formErrorMessage">
+          	<p style="color:red" data-ng-message="required">SSN is required.</p>
+          </div>
+        </li>
+        
+        <li>
+          <label for="doctorSpeciality">Speciality: </label>
+          <input type="textbox" id="doctorSpeciality" name="doctorSpeciality" placeholder="" data-ng-model="doctorLoginVm.newPerson.speciality" required>
+          <!-- if only dirty check and show message -->
+          <div data-ng-messages="doctorLoginForm.doctorSpeciality.$error" data-ng-if="doctorLoginForm.doctorSpeciality.$dirty" class="formErrorMessage">
+            <p style="color:red" data-ng-message="required">Speciality is required.</p>
+          </div>
+        </li>
+      </ul>
+	<br/>
+      <!-- if 'data-ng-click="doctorLoginVm.makeReservation()' is used,form is not submitted on pressidata-ng Enter. 
+           However, data-ng-submit allows you to submit even on pressidata-ng Enter key.  -->
+      <!-- Pass the form name for further validation -->
+     <center> <a class="reservationDetails" data-ng-click="doctorLoginVm.makeReservation(doctorLoginForm);" > Submit </a></center>
+
+    </form>
+    
+    
+
+  </div>
+
+</div>
